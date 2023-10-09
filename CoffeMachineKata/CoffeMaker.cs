@@ -7,7 +7,7 @@ namespace CoffeMachineKata
         const string CHOCOLATE = "H";
         const string COFFEE = "C";
         const string TEA = "T";
-
+        
         string? _drink;
         string? _sugar;
         string? _spoon;
@@ -22,7 +22,7 @@ namespace CoffeMachineKata
             }
             if (_drink == COFFEE)
             {
-                return "Coffee with 1 sugar and 1 spoon";
+                return string.Format("Coffee with {0} sugar and {1} spoon", _sugar, _spoon); ;
             }
             return string.Format("Tea with {0} sugar and {1} spoon", _sugar, _spoon);
         }
