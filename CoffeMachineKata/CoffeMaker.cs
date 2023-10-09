@@ -20,24 +20,12 @@ namespace CoffeMachineKata
         string? _drink;
         string? _sugar;
         string? _spoon;
-        private readonly double moneyAmount;
 
-       
-
-        public CoffeMaker(double moneyAmount)
-        {
-            this.moneyAmount = moneyAmount;
-        }
-        public CoffeMaker()
-        {
-
-        }
-
-        public string MakeDrink(string order)
+        public string MakeDrink(string order, double moneyAmount = 0.0)
         {
             if (!order.StartsWith(MESSAGE_CONTENT))
             {
-                return GetCustomerOrder(order);
+                return GetCustomerOrder(order, moneyAmount);
             }
             return DisplayMessage(order);
         }
@@ -47,7 +35,7 @@ namespace CoffeMachineKata
             return order.Substring(2);
         }
 
-        private string GetCustomerOrder(string order)
+        private string GetCustomerOrder(string order, double moneyAmount)
         {
             SetOrder(order);
             switch (_drink)
@@ -68,15 +56,15 @@ namespace CoffeMachineKata
 
                 case TEA:
                     {
-                        return GetTeaOrder();
+                        return GetTeaOrder(moneyAmount);
                     }
 
                 default:
-                    return MakeDrink(string.Format("M:{0}",ERROR));
+                    return MakeDrink(string.Format("M:{0}", ERROR));
             }
         }
 
-        private string GetTeaOrder()
+        private string GetTeaOrder(double moneyAmount)
         {
             if (moneyAmount >= MINIMUM_AMOUNT_TEA)
             {
