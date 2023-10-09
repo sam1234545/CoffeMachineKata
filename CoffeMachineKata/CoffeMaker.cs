@@ -36,8 +36,8 @@ namespace CoffeMachineKata
         {
             string[] orderInstructions = order.Split(':');
             _drink = orderInstructions[0];
-            _sugar = orderInstructions[1];
-            _spoon = orderInstructions[1] != "0" ? orderInstructions[2] : "0";
+            _sugar = orderInstructions[1] != ""? orderInstructions[1]:"no";
+            _spoon = orderInstructions[1] != "" ? orderInstructions[2] : "no";
         }
     }
 }

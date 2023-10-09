@@ -30,30 +30,30 @@ namespace CoffeMachineKata
         public void Should_SendOneTeaNoSugar_NoSpoon_WhenOrdered()
         {
             var CoffeMaker = new CoffeMaker();
-            var order = CoffeMaker.MakeDrink("T:0:0");
-            Assert.Equal("Tea with 0 sugar and 0 spoon", order);
+            var order = CoffeMaker.MakeDrink("T::");
+            Assert.Equal("Tea with no sugar and no spoon", order);
         }
 
         [Fact]
         public void Should_SendOneCoffeeNoSugar_NoSpoon_WhenOrdered()
         {
             var CoffeMaker = new CoffeMaker();
-            var order = CoffeMaker.MakeDrink("C:0:0");
-            Assert.Equal("Coffee with 0 sugar and 0 spoon", order);
+            var order = CoffeMaker.MakeDrink("C::");
+            Assert.Equal("Coffee with no sugar and no spoon", order);
         }
 
         [Fact]
         public void Should_SendOneChocolateNoSugar_NoSpoon_WhenOrdered()
         {
             var CoffeMaker = new CoffeMaker();
-            var order = CoffeMaker.MakeDrink("H:0:0");
-            Assert.Equal("Chocolate with 0 sugar and 0 spoon", order);
+            var order = CoffeMaker.MakeDrink("H::");
+            Assert.Equal("Chocolate with no sugar and no spoon", order);
         }
         [Fact]
         public void Should_SendErreurMessage_When_NoOrder()
         {
             var CoffeMaker = new CoffeMaker();
-            var order = CoffeMaker.MakeDrink("0:0:0");
+            var order = CoffeMaker.MakeDrink(":0:0");
             Assert.Equal("Please make an order", order);
         }
     }
