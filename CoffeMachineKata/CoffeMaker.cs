@@ -102,11 +102,11 @@ namespace CoffeMachineKata
         {
             string[] orderInstructions = order.Split(SEPARATOR);
             _drink = orderInstructions[0];
-            setSugar(orderInstructions);
+            SetSugar(orderInstructions);
             SetSpoon(orderInstructions);
         }
 
-        private void setSugar(string[] orderInstructions)
+        private void SetSugar(string[] orderInstructions)
         {
             if (!string.IsNullOrEmpty(orderInstructions[1]))
             {
@@ -114,7 +114,7 @@ namespace CoffeMachineKata
             }
             else
             {
-                _sugar = "no";
+                _sugar = NO;
             }
         }
 
