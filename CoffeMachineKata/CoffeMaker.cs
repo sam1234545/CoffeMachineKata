@@ -13,10 +13,13 @@ namespace CoffeMachineKata
         private const char MESSAGE_CONTENT = 'M';
         private const string ERROR = "Please make an order";
         private const char SEPARATOR = ':';
+       
         private const string NO = "no";
         private const string INDEFINITE_ARTICLE = "a";
+
         private const double MINIMUM_AMOUNT_TEA = 0.4;
         public const double MINIMUM_AMOUNT_COFFEE = 0.6;
+        public const double MINIMUM_AMOUNT_CHOCOLATE = 0.5;
         string? _drink;
         string? _sugar;
         string? _spoon;
@@ -41,7 +44,14 @@ namespace CoffeMachineKata
             switch (_drink)
             {
                 case CHOCOLATE:
-                    return string.Format("{0} with {1} sugar and {2} spoon", CHOCOLATE_VALUE, _sugar, _spoon);
+                    if (moneyAmount >= MINIMUM_AMOUNT_COFFEE)
+                    {
+                        return string.Format("{0} with {1} sugar and {2} spoon", CHOCOLATE_VALUE, _sugar, _spoon);
+                    }
+                    else
+                    {
+                        return MakeDrink(string.Format("M:The amount {0} is not enough for ordering {1}", moneyAmount, CHOCOLATE_VALUE));
+                    }
                 case COFFEE:
                     {
                         if (moneyAmount >= MINIMUM_AMOUNT_COFFEE)

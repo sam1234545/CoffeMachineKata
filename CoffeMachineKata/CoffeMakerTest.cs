@@ -49,5 +49,22 @@ namespace CoffeMachineKata
             var order = CoffeMaker.MakeDrink("C:1:0", 0.3);
             Assert.Equal("The amount 0,3 is not enough for ordering Coffee", order);
         }
+
+
+        [Fact]
+        public void Should_SendOneChocolate_OneSugar_aSpoon_WhenOrdered_WithRightPrice()
+        {
+            var CoffeMaker = new CoffeMaker();
+            var order = CoffeMaker.MakeDrink("H:1:0", 0.6);
+            Assert.Equal("Chocolate with 1 sugar and a spoon", order);
+        }
+
+        [Fact]
+        public void Should_SendOneChocolate_OneSugar_aSpoon_WhenOrdered_WithWrongPrice()
+        {
+            var CoffeMaker = new CoffeMaker();
+            var order = CoffeMaker.MakeDrink("H:1:0", 0.3);
+            Assert.Equal("The amount 0,3 is not enough for ordering Chocolate", order);
+        }
     }
 }
