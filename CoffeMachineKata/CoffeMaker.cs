@@ -12,6 +12,9 @@ namespace CoffeMachineKata
         const string CHOCOLATE_VALUE = "Chocolate";
         private const char MESSAGE_CONTENT = 'M';
         private const string ERROR = "Please make an order";
+        private const char SEPARATOR = ':';
+        private const string NO = "no";
+        private const string INDEFINITE_ARTICLE = "a";
         string? _drink;
         string? _sugar;
         string? _spoon;
@@ -48,7 +51,7 @@ namespace CoffeMachineKata
 
         private void SetOrder(string order)
         {
-            string[] orderInstructions = order.Split(':');
+            string[] orderInstructions = order.Split(SEPARATOR);
             _drink = orderInstructions[0];
             setSugar(orderInstructions);
             SetSpoon(orderInstructions);
@@ -70,11 +73,11 @@ namespace CoffeMachineKata
         {
             if (string.IsNullOrEmpty(orderInstructions[1]) || string.IsNullOrEmpty(orderInstructions[2]))
             {
-                _spoon = "no";
+                _spoon = NO;
             }
             if (orderInstructions[2] == "0")
             {
-                _spoon = "a";
+                _spoon = INDEFINITE_ARTICLE;
             }
         }
     }
