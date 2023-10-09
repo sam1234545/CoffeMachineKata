@@ -15,6 +15,7 @@ namespace CoffeMachineKata
         private const char SEPARATOR = ':';
         private const string NO = "no";
         private const string INDEFINITE_ARTICLE = "a";
+        private const double MINIMUM_AMOUNT_TEA = 0.4;
         string? _drink;
         string? _sugar;
         string? _spoon;
@@ -54,7 +55,7 @@ namespace CoffeMachineKata
                     return string.Format("{0} with {1} sugar and {2} spoon", COFFEE_VALUE, _sugar, _spoon);
                 case TEA:
                     {
-                        if (moneyAmount >= 0.4)
+                        if (moneyAmount >= MINIMUM_AMOUNT_TEA)
                         {
                             return string.Format("{0} with {1} sugar and {2} spoon", TEA_VALUE, _sugar, _spoon);
                         }
