@@ -53,12 +53,22 @@ namespace CoffeMachineKata
                 case COFFEE:
                     return string.Format("{0} with {1} sugar and {2} spoon", COFFEE_VALUE, _sugar, _spoon);
                 case TEA:
-                    return string.Format("{0} with {1} sugar and {2} spoon", TEA_VALUE, _sugar, _spoon);
+                    {
+                        if (moneyAmount >= 0.4)
+                        {
+                            return string.Format("{0} with {1} sugar and {2} spoon", TEA_VALUE, _sugar, _spoon);
+                        }
+                        else
+                        {
+                            return string.Format("The amount {0} is not enough for ordering {1}",moneyAmount, TEA_VALUE); 
+                        }
+                        
+                    }
+                   
                 default:
                     return ERROR;
             }
         }
-
         private void SetOrder(string order)
         {
             string[] orderInstructions = order.Split(SEPARATOR);
