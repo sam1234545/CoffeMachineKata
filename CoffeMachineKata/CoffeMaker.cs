@@ -18,6 +18,11 @@ namespace CoffeMachineKata
 
         public string MakeDrink(string order)
         {
+            if (order.StartsWith('M'))
+            {
+                return order.Substring(2);
+            }
+
             SetOrder(order);
             switch (_drink)
             {
@@ -42,7 +47,7 @@ namespace CoffeMachineKata
 
         private void GetSpoonOrder(string[] orderInstructions)
         {
-            if(string.IsNullOrEmpty(orderInstructions[1] )|| string.IsNullOrEmpty(orderInstructions[2]))
+            if (string.IsNullOrEmpty(orderInstructions[1]) || string.IsNullOrEmpty(orderInstructions[2]))
             {
                 _spoon = "no";
             }
