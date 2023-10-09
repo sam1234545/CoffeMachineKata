@@ -4,15 +4,17 @@ namespace CoffeMachineKata
 {
     public class CoffeMaker
     {
-        const char CHOCOLATE = 'H';
-        const char COFFEE = 'C';
-        const char TEA = 'T';
+        const string CHOCOLATE = "H";
+        const string COFFEE = "C";
+        const string TEA = "T";
 
         public string MakeDrink(string order)
         {
             
-            char[] orderInstructions = order.ToCharArray();
+            string[] orderInstructions = order.Split(':');
             var drink = orderInstructions[0];
+            var sugar = orderInstructions[1];
+            var spoon = orderInstructions[1] != "0" ? orderInstructions[2]:"0";
 
             if (drink ==CHOCOLATE)
             {
@@ -22,7 +24,7 @@ namespace CoffeMachineKata
             {
                 return "Coffee with 1 sugar and 1 spoon";
             }
-            return "Tea with 1 sugar and 1 spoon";
+            return string.Format("Tea with {0} sugar and {1} spoon",sugar,spoon);
         }
     }
 }
