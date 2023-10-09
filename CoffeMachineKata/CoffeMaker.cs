@@ -61,7 +61,7 @@ namespace CoffeMachineKata
                         }
                         else
                         {
-                            return string.Format("The amount {0} is not enough for ordering {1}",moneyAmount, TEA_VALUE); 
+                            return MakeDrink(string.Format("M:The amount {0} is not enough for ordering {1}",moneyAmount, TEA_VALUE)); 
                         }
                         
                     }
