@@ -28,7 +28,7 @@ namespace CoffeMachineKata
                 case TEA:
                     return string.Format("{0} with {1} sugar and {2} spoon", TEA_VALUE, _sugar, _spoon);
                 default:
-                    return "";
+                    return "Please make an order";
             }
         }
 

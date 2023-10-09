@@ -49,5 +49,12 @@ namespace CoffeMachineKata
             var order = CoffeMaker.MakeDrink("H:0:0");
             Assert.Equal("Chocolate with 0 sugar and 0 spoon", order);
         }
+        [Fact]
+        public void Should_SendErreurMessage_When_NoOrder()
+        {
+            var CoffeMaker = new CoffeMaker();
+            var order = CoffeMaker.MakeDrink("0:0:0");
+            Assert.Equal("Please make an order", order);
+        }
     }
 }
