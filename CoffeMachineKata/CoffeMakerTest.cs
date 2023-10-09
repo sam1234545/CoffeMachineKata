@@ -6,8 +6,8 @@ namespace CoffeMachineKata
         public void Should_SendOneTea_OneSugar_aSpoon_WhenOrdered()
         {
             var CoffeMaker = new CoffeMaker();
-            var order = CoffeMaker.MakeDrink("T:1:1");
-            Assert.Equal("Tea with 1 sugar and 1 spoon", order);
+            var order = CoffeMaker.MakeDrink("T:1:0");
+            Assert.Equal("Tea with 1 sugar and a spoon", order);
         }
 
         [Fact]

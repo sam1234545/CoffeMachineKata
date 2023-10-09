@@ -36,9 +36,20 @@ namespace CoffeMachineKata
         {
             string[] orderInstructions = order.Split(':');
             _drink = orderInstructions[0];
-            _sugar = orderInstructions[1] != ""? orderInstructions[1]:"no";
-            _spoon = orderInstructions[1] != "" ? orderInstructions[2] : "no";
-            _spoon = _spoon == "0" ? "a" : _spoon;
+            _sugar = orderInstructions[1] != "" ? orderInstructions[1] : "no";
+            GetSpoonOrder(orderInstructions);
+        }
+
+        private void GetSpoonOrder(string[] orderInstructions)
+        {
+            if(string.IsNullOrEmpty(orderInstructions[1] )|| string.IsNullOrEmpty(orderInstructions[2]))
+            {
+                _spoon = "no";
+            }
+            if (orderInstructions[2] == "0")
+            {
+                _spoon = "a";
+            }
         }
     }
 }
