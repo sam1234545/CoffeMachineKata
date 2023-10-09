@@ -13,7 +13,7 @@ namespace CoffeMachineKata
         private const char MESSAGE_CONTENT = 'M';
         private const string ERROR = "Please make an order";
         private const char SEPARATOR = ':';
-       
+
         private const string NO = "no";
         private const string INDEFINITE_ARTICLE = "a";
 
@@ -44,24 +44,12 @@ namespace CoffeMachineKata
             switch (_drink)
             {
                 case CHOCOLATE:
-                    if (moneyAmount >= MINIMUM_AMOUNT_CHOCOLATE)
                     {
-                        return string.Format("{0} with {1} sugar and {2} spoon", CHOCOLATE_VALUE, _sugar, _spoon);
-                    }
-                    else
-                    {
-                        return MakeDrink(string.Format("M:The amount {0} is not enough for ordering {1}", moneyAmount, CHOCOLATE_VALUE));
+                        return GetChocolateOrder(moneyAmount);
                     }
                 case COFFEE:
                     {
-                        if (moneyAmount >= MINIMUM_AMOUNT_COFFEE)
-                        {
-                            return string.Format("{0} with {1} sugar and {2} spoon", COFFEE_VALUE, _sugar, _spoon);
-                        }
-                        else
-                        {
-                            return MakeDrink(string.Format("M:The amount {0} is not enough for ordering {1}", moneyAmount, COFFEE_VALUE));
-                        }
+                        return GetCoffeeOrder(moneyAmount);
                     }
 
                 case TEA:
@@ -71,6 +59,30 @@ namespace CoffeMachineKata
 
                 default:
                     return MakeDrink(string.Format("M:{0}", ERROR));
+            }
+        }
+
+        private string GetChocolateOrder(double moneyAmount)
+        {
+            if (moneyAmount >= MINIMUM_AMOUNT_CHOCOLATE)
+            {
+                return string.Format("{0} with {1} sugar and {2} spoon", CHOCOLATE_VALUE, _sugar, _spoon);
+            }
+            else
+            {
+                return MakeDrink(string.Format("M:The amount {0} is not enough for ordering {1}", moneyAmount, CHOCOLATE_VALUE));
+            }
+        }
+
+        private string GetCoffeeOrder(double moneyAmount)
+        {
+            if (moneyAmount >= MINIMUM_AMOUNT_COFFEE)
+            {
+                return string.Format("{0} with {1} sugar and {2} spoon", COFFEE_VALUE, _sugar, _spoon);
+            }
+            else
+            {
+                return MakeDrink(string.Format("M:The amount {0} is not enough for ordering {1}", moneyAmount, COFFEE_VALUE));
             }
         }
 

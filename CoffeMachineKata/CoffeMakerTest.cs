@@ -67,7 +67,6 @@ namespace CoffeMachineKata
             Assert.Equal("The amount 0,3 is not enough for ordering Chocolate", order);
         }
 
-
         [Fact]
         public void Should_SendOneChocolateNoSugar_NoSpoon_WhenOrdered_WithWrongPrice()
         {
