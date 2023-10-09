@@ -7,7 +7,9 @@ namespace CoffeMachineKata
         const string CHOCOLATE = "H";
         const string COFFEE = "C";
         const string TEA = "T";
-        
+        const string COFFEE_VALUE = "Coffee";
+        const string TEA_VALUE = "Tea";
+        const string CHOCOLATE_VALUE = "Chocolate";
         string? _drink;
         string? _sugar;
         string? _spoon;
@@ -22,9 +24,9 @@ namespace CoffeMachineKata
             }
             if (_drink == COFFEE)
             {
-                return string.Format("Coffee with {0} sugar and {1} spoon", _sugar, _spoon); ;
+                return string.Format("{0} with {1} sugar and {2} spoon", COFFEE_VALUE ,_sugar, _spoon); ;
             }
-            return string.Format("Tea with {0} sugar and {1} spoon", _sugar, _spoon);
+            return string.Format("{0} with {1} sugar and {2} spoon", TEA_VALUE, _sugar, _spoon);
         }
 
         private void SetOrder(string order)
