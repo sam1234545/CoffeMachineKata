@@ -18,6 +18,16 @@ namespace CoffeMachineKata
         string? _drink;
         string? _sugar;
         string? _spoon;
+        private readonly double moneyAmount;
+
+        public CoffeMaker(double moneyAmount)
+        {
+            this.moneyAmount = moneyAmount;
+        }
+        public CoffeMaker()
+        {
+
+        }
 
         public string MakeDrink(string order)
         {
