@@ -18,11 +18,20 @@ namespace CoffeMachineKata
 
         public string MakeDrink(string order)
         {
-            if (order.StartsWith('M'))
+            if (!order.StartsWith('M'))
             {
-                return order.Substring(2);
+                return GetCustomerOrder(order);
             }
+            return DisplayMessage(order);
+        }
 
+        private static string DisplayMessage(string order)
+        {
+            return order.Substring(2);
+        }
+
+        private string GetCustomerOrder(string order)
+        {
             SetOrder(order);
             switch (_drink)
             {
