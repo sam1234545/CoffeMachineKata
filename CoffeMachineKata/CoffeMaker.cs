@@ -38,6 +38,7 @@ namespace CoffeMachineKata
             _drink = orderInstructions[0];
             _sugar = orderInstructions[1] != ""? orderInstructions[1]:"no";
             _spoon = orderInstructions[1] != "" ? orderInstructions[2] : "no";
+            _spoon = _spoon == "0" ? "a" : _spoon;
         }
     }
 }
