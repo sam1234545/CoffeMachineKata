@@ -44,7 +44,7 @@ namespace CoffeMachineKata
             switch (_drink)
             {
                 case CHOCOLATE:
-                    if (moneyAmount >= MINIMUM_AMOUNT_COFFEE)
+                    if (moneyAmount >= MINIMUM_AMOUNT_CHOCOLATE)
                     {
                         return string.Format("{0} with {1} sugar and {2} spoon", CHOCOLATE_VALUE, _sugar, _spoon);
                     }
