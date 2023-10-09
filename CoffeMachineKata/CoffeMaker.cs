@@ -10,15 +10,15 @@ namespace CoffeMachineKata
         const string COFFEE_VALUE = "Coffee";
         const string TEA_VALUE = "Tea";
         const string CHOCOLATE_VALUE = "Chocolate";
-
-
+        private const char MESSAGE_CONTENT = 'M';
+        private const string ERROR = "Please make an order";
         string? _drink;
         string? _sugar;
         string? _spoon;
 
         public string MakeDrink(string order)
         {
-            if (!order.StartsWith('M'))
+            if (!order.StartsWith(MESSAGE_CONTENT))
             {
                 return GetCustomerOrder(order);
             }
@@ -42,7 +42,7 @@ namespace CoffeMachineKata
                 case TEA:
                     return string.Format("{0} with {1} sugar and {2} spoon", TEA_VALUE, _sugar, _spoon);
                 default:
-                    return "Please make an order";
+                    return ERROR;
             }
         }
 
@@ -50,11 +50,23 @@ namespace CoffeMachineKata
         {
             string[] orderInstructions = order.Split(':');
             _drink = orderInstructions[0];
-            _sugar = orderInstructions[1] != "" ? orderInstructions[1] : "no";
-            GetSpoonOrder(orderInstructions);
+            setSugar(orderInstructions);
+            SetSpoon(orderInstructions);
         }
 
-        private void GetSpoonOrder(string[] orderInstructions)
+        private void setSugar(string[] orderInstructions)
+        {
+            if (!string.IsNullOrEmpty(orderInstructions[1]))
+            {
+                _sugar = orderInstructions[1];
+            }
+            else
+            {
+                _sugar = "no";
+            }
+        }
+
+        private void SetSpoon(string[] orderInstructions)
         {
             if (string.IsNullOrEmpty(orderInstructions[1]) || string.IsNullOrEmpty(orderInstructions[2]))
             {
