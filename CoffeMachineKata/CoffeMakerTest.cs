@@ -17,5 +17,14 @@ namespace CoffeMachineKata
             var order = CoffeMaker.MakeDrink("C:1:1");
             Assert.Equal("Coffee with 1 sugar and 1 spoon", order);
         }
+
+        [Fact]
+        public void Should_SendOneChocalate_OneSugar_OneSpoon_WhenOrdered()
+        {
+            var CoffeMaker = new CoffeMaker();
+            var order = CoffeMaker.MakeDrink("H:1:1");
+            Assert.Equal("Chocolate with 1 sugar and 1 spoon", order);
+        }
+
     }
 }
