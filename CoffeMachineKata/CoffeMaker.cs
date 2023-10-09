@@ -63,11 +63,10 @@ namespace CoffeMachineKata
                         {
                             return MakeDrink(string.Format("M:The amount {0} is not enough for ordering {1}",moneyAmount, TEA_VALUE)); 
                         }
-                        
                     }
                    
                 default:
-                    return ERROR;
+                    return MakeDrink(string.Format("M:{0}",ERROR));
             }
         }
         private void SetOrder(string order)
