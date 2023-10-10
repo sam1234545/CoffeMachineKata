@@ -5,7 +5,7 @@
         private const double MINIMUM_AMOUNT_COFFEE = 0.6;
         private const string COFFEE_VALUE = "Coffee";
 
-        public CoffeeDrinkOrder(double moneyAmount, string drink, string sugar, string spoon) : base(moneyAmount, drink, sugar, spoon)
+        public CoffeeDrinkOrder(double moneyAmount, string drink, string sugar, string spoon, bool isHot) : base(moneyAmount, drink, sugar, spoon, isHot)
         {
         }
 
