@@ -7,6 +7,7 @@ namespace CoffeMachineKata
         const string COFFEE = "C";
         const string TEA = "T";
         const string ORANGE = "O";
+        internal const string HOT = "h";
 
         private const char MESSAGE_CONTENT = 'M';
         private const string ERROR = "Please make an order";
@@ -29,7 +30,14 @@ namespace CoffeMachineKata
         private string GetCustomerOrder(string order, double moneyAmount)
         {
             string[] orderInstructions = order.Split(SEPARATOR);
- 
+            string drinkOrderValue = orderInstructions[0];
+            string isHot = "";
+            if (drinkOrderValue.Length > 0 && drinkOrderValue.Length >= 2)
+            {
+                isHot = drinkOrderValue.Substring(1, 1);
+                orderInstructions[0] = drinkOrderValue.Substring(0, 1);
+
+            }
             switch (orderInstructions[0])
             {
                 case ORANGE:
@@ -39,8 +47,18 @@ namespace CoffeMachineKata
                     }
                 case CHOCOLATE:
                     {
-                        DrinkOrder drinkOrder = new ChocolateDrinkOrder(moneyAmount, orderInstructions[0], orderInstructions[1], orderInstructions[2]);
-                        return drinkOrder.GetOrder();
+                        if (!string.IsNullOrEmpty(isHot) && isHot == HOT)
+                        {
+                            DrinkOrder drinkOrder = new ChocolateDrinkOrder(moneyAmount, orderInstructions[0], orderInstructions[1], orderInstructions[2], true);
+                            return drinkOrder.GetOrder();
+                        }
+                        else
+                        {
+                            DrinkOrder drinkOrder = new ChocolateDrinkOrder(moneyAmount, orderInstructions[0], orderInstructions[1], orderInstructions[2]);
+                            return drinkOrder.GetOrder();
+                        }
+                       
+                      //  return drinkOrder.GetOrder();
                     }
 
                 case COFFEE:

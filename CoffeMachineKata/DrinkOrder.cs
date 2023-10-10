@@ -13,16 +13,18 @@ namespace CoffeMachineKata
         internal const string NO_SUGAR_ORDER = "0";
         internal const string INDEFINITE_ARTICLE = "a";
         internal const char MESSAGE_CONTENT = 'M';
+        internal const string EXTRA_HOT_DRINK_TEXT = "An extra hot";
         internal const char SEPARATOR = ':';
         internal readonly string? Sugar;
-        internal string? Drink { get; private set; }
+        internal readonly string? Drink;
         internal readonly string? Spoon;
         internal readonly double MoneyAmount;
-        public DrinkOrder(double moneyAmount, string drink, string sugar, string spoon)
+        internal readonly bool IsHot;
+        public DrinkOrder(double moneyAmount, string drink, string sugar, string spoon, bool isHot = default)
         {
             MoneyAmount = moneyAmount;
             Drink = drink;
-
+            IsHot = isHot;
 
             if (!string.IsNullOrEmpty(sugar))
             {
@@ -45,8 +47,12 @@ namespace CoffeMachineKata
 
         public abstract string GetOrder();
 
-        internal string SendDrinkOrder( string drinkValue )
+        internal string SendDrinkOrder(string drinkValue)
         {
+            if (IsHot)
+            {
+                return string.Format("{0} {1} with {2} sugar and {3} spoon", EXTRA_HOT_DRINK_TEXT, drinkValue, Sugar, Spoon);
+            }
             return string.Format("{0} with {1} sugar and {2} spoon", drinkValue, Sugar, Spoon);
         }
 
