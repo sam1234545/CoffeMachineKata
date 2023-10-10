@@ -22,14 +22,8 @@ namespace CoffeMachineKata
             }
             else
             {
-                return SendMessageNotEnoughMoney();
+                return SendMessageNotEnoughMoney(CHOCOLATE_VALUE);
             }
-        }
-
-        internal override string SendMessageNotEnoughMoney()
-        {
-            CoffeMaker coffeeMaker = new CoffeMaker();
-            return coffeeMaker.MakeDrink(string.Format("{0}{1}The amount {2} is not enough for ordering {3}", MESSAGE_CONTENT, SEPARATOR, MoneyAmount, CHOCOLATE_VALUE));
         }
     }
 }
