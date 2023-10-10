@@ -50,7 +50,10 @@ namespace CoffeMachineKata
                     }
                 case COFFEE:
                     {
-                        return GetCoffeeOrder(moneyAmount);
+                        string[] orderInstructions = order.Split(SEPARATOR);
+                        DrinkOrder drinkOrder = new CoffeeDrinkOrder(moneyAmount, orderInstructions[0], orderInstructions[1], orderInstructions[2]);
+                        return drinkOrder.GetOrder();
+                        //return GetCoffeeOrder(moneyAmount);
                     }
 
                 case TEA:
