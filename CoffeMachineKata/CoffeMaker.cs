@@ -7,7 +7,6 @@ namespace CoffeMachineKata
         const string CHOCOLATE = "H";
         const string COFFEE = "C";
         const string TEA = "T";
-        const string COFFEE_VALUE = "Coffee";
         const string TEA_VALUE = "Tea";
         const string CHOCOLATE_VALUE = "Chocolate";
         private const char MESSAGE_CONTENT = 'M';
@@ -18,7 +17,6 @@ namespace CoffeMachineKata
         private const string INDEFINITE_ARTICLE = "a";
 
         private const double MINIMUM_AMOUNT_TEA = 0.4;
-        public const double MINIMUM_AMOUNT_COFFEE = 0.6;
         public const double MINIMUM_AMOUNT_CHOCOLATE = 0.5;
         private const string NO_SUGAR_ORDER = "0";
         string? _drink;
@@ -53,7 +51,6 @@ namespace CoffeMachineKata
                         string[] orderInstructions = order.Split(SEPARATOR);
                         DrinkOrder drinkOrder = new CoffeeDrinkOrder(moneyAmount, orderInstructions[0], orderInstructions[1], orderInstructions[2]);
                         return drinkOrder.GetOrder();
-                        //return GetCoffeeOrder(moneyAmount);
                     }
 
                 case TEA:
@@ -75,18 +72,6 @@ namespace CoffeMachineKata
             else
             {
                return SendMessageNotEnoughMoney(CHOCOLATE_VALUE, moneyAmount);
-            }
-        }
-
-        private string GetCoffeeOrder(double moneyAmount)
-        {
-            if (moneyAmount >= MINIMUM_AMOUNT_COFFEE)
-            {
-                return SendDrinkOrder(COFFEE_VALUE);
-            }
-            else
-            {
-                return SendMessageNotEnoughMoney(COFFEE_VALUE,moneyAmount);
             }
         }
 
