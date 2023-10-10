@@ -18,17 +18,12 @@ namespace CoffeMachineKata
         {
             if (MoneyAmount >= MINIMUM_AMOUNT_CHOCOLATE)
             {
-                return SendDrinkOrder();
+                return SendDrinkOrder(CHOCOLATE_VALUE);
             }
             else
             {
                 return SendMessageNotEnoughMoney();
             }
-        }
-
-        internal override string SendDrinkOrder()
-        {
-            return string.Format("{0} with {1} sugar and {2} spoon", CHOCOLATE_VALUE, Sugar, Spoon);
         }
 
         internal override string SendMessageNotEnoughMoney()

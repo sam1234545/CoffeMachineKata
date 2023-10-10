@@ -13,22 +13,18 @@
         {
             if (MoneyAmount >= MINIMUM_AMOUNT_COFFEE)
             {
-                return SendDrinkOrder();
+                return SendDrinkOrder(COFFEE_VALUE);
             }
             else
             {
                 return SendMessageNotEnoughMoney();
             }
         }
+
         internal override string SendMessageNotEnoughMoney()
         {
             CoffeMaker coffeeMaker = new CoffeMaker();
             return coffeeMaker.MakeDrink(string.Format("{0}{1}The amount {2} is not enough for ordering {3}", MESSAGE_CONTENT, SEPARATOR, MoneyAmount, COFFEE_VALUE));
         }
-        internal override string SendDrinkOrder()
-        {
-            return string.Format("{0} with {1} sugar and {2} spoon", COFFEE_VALUE, Sugar, Spoon);
-        }
-
     }
 }

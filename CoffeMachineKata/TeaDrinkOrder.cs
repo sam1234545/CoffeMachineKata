@@ -12,17 +12,12 @@
         {
             if (MoneyAmount >= MINIMUM_AMOUNT_TEA)
             {
-                return SendDrinkOrder();
+                return SendDrinkOrder(TEA_VALUE);
             }
             else
             {
                 return SendMessageNotEnoughMoney();
             }
-        }
-
-        internal override string SendDrinkOrder()
-        {
-            return string.Format("{0} with {1} sugar and {2} spoon", TEA_VALUE, Sugar, Spoon);
         }
 
         internal override string SendMessageNotEnoughMoney()

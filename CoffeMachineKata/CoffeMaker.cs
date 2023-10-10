@@ -37,6 +37,7 @@ namespace CoffeMachineKata
                         DrinkOrder drinkOrder = new ChocolateDrinkOrder(moneyAmount, orderInstructions[0], orderInstructions[1], orderInstructions[2]);
                         return drinkOrder.GetOrder();
                     }
+
                 case COFFEE:
                     {
                         DrinkOrder drinkOrder = new CoffeeDrinkOrder(moneyAmount, orderInstructions[0], orderInstructions[1], orderInstructions[2]);

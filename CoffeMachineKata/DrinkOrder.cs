@@ -44,8 +44,11 @@ namespace CoffeMachineKata
         }
 
         public abstract string GetOrder();
-        internal abstract string SendDrinkOrder();
         internal abstract string SendMessageNotEnoughMoney();
 
+        internal string SendDrinkOrder( string drinkValue )
+        {
+            return string.Format("{0} with {1} sugar and {2} spoon", drinkValue, Sugar, Spoon);
+        }
     }
 }
