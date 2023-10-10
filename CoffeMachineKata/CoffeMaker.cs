@@ -12,14 +12,6 @@ namespace CoffeMachineKata
         private const string ERROR = "Please make an order";
         private const char SEPARATOR = ':';
 
-        private const string NO = "no";
-        private const string INDEFINITE_ARTICLE = "a";
-
-        private const string NO_SUGAR_ORDER = "0";
-        string? _drink;
-        string? _sugar;
-        string? _spoon;
-
         public string MakeDrink(string order, double moneyAmount = 0.0)
         {
             if (!order.StartsWith(MESSAGE_CONTENT))
@@ -61,6 +53,5 @@ namespace CoffeMachineKata
                     return MakeDrink(string.Format("{0}{1}{2}", MESSAGE_CONTENT, SEPARATOR, ERROR));
             }
         }
-
     }
 }
