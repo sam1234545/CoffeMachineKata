@@ -37,43 +37,30 @@ namespace CoffeMachineKata
         private string GetCustomerOrder(string order, double moneyAmount)
         {
             SetOrder(order);
+            string[] orderInstructions = order.Split(SEPARATOR);
+ 
             switch (_drink)
             {
                 case CHOCOLATE:
                     {
-                        string[] orderInstructions = order.Split(SEPARATOR);
                         DrinkOrder drinkOrder = new ChocolateDrinkOrder(moneyAmount, orderInstructions[0], orderInstructions[1], orderInstructions[2]);
                         return drinkOrder.GetOrder();
                     }
                 case COFFEE:
                     {
-                        string[] orderInstructions = order.Split(SEPARATOR);
                         DrinkOrder drinkOrder = new CoffeeDrinkOrder(moneyAmount, orderInstructions[0], orderInstructions[1], orderInstructions[2]);
                         return drinkOrder.GetOrder();
                     }
 
                 case TEA:
                     {
-
-                        string[] orderInstructions = order.Split(SEPARATOR);
                         DrinkOrder drinkOrder = new TeaDrinkOrder(moneyAmount, orderInstructions[0], orderInstructions[1], orderInstructions[2]);
                         return drinkOrder.GetOrder();
-                    
                     }
 
                 default:
                     return MakeDrink(string.Format("{0}{1}{2}", MESSAGE_CONTENT, SEPARATOR, ERROR));
             }
-        }
-
-        private string SendMessageNotEnoughMoney(string drinkValue, double moneyAmount)
-        {
-            return MakeDrink(string.Format("{0}{1}The amount {2} is not enough for ordering {3}", MESSAGE_CONTENT, SEPARATOR, moneyAmount, drinkValue));
-        }
-
-        private string SendDrinkOrder(string DrinkValue)
-        {
-            return string.Format("{0} with {1} sugar and {2} spoon", DrinkValue, _sugar, _spoon);
         }
 
         private void SetOrder(string order)
