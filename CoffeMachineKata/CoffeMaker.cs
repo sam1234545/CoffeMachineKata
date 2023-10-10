@@ -20,6 +20,7 @@ namespace CoffeMachineKata
         private const double MINIMUM_AMOUNT_TEA = 0.4;
         public const double MINIMUM_AMOUNT_COFFEE = 0.6;
         public const double MINIMUM_AMOUNT_CHOCOLATE = 0.5;
+        private const string NO_SUGAR_ORDER = "0";
         string? _drink;
         string? _sugar;
         string? _spoon;
@@ -58,7 +59,7 @@ namespace CoffeMachineKata
                     }
 
                 default:
-                    return MakeDrink(string.Format("M:{0}", ERROR));
+                    return MakeDrink(string.Format("{0}{1}{2}", MESSAGE_CONTENT, SEPARATOR, ERROR));
             }
         }
 
@@ -66,11 +67,11 @@ namespace CoffeMachineKata
         {
             if (moneyAmount >= MINIMUM_AMOUNT_CHOCOLATE)
             {
-                return string.Format("{0} with {1} sugar and {2} spoon", CHOCOLATE_VALUE, _sugar, _spoon);
+                return SendDrinkOrder(CHOCOLATE_VALUE);
             }
             else
             {
-                return MakeDrink(string.Format("M:The amount {0} is not enough for ordering {1}", moneyAmount, CHOCOLATE_VALUE));
+               return SendMessageNotEnoughMoney(CHOCOLATE_VALUE, moneyAmount);
             }
         }
 
@@ -78,11 +79,11 @@ namespace CoffeMachineKata
         {
             if (moneyAmount >= MINIMUM_AMOUNT_COFFEE)
             {
-                return string.Format("{0} with {1} sugar and {2} spoon", COFFEE_VALUE, _sugar, _spoon);
+                return SendDrinkOrder(COFFEE_VALUE);
             }
             else
             {
-                return MakeDrink(string.Format("M:The amount {0} is not enough for ordering {1}", moneyAmount, COFFEE_VALUE));
+                return SendMessageNotEnoughMoney(COFFEE_VALUE,moneyAmount);
             }
         }
 
@@ -90,12 +91,22 @@ namespace CoffeMachineKata
         {
             if (moneyAmount >= MINIMUM_AMOUNT_TEA)
             {
-                return string.Format("{0} with {1} sugar and {2} spoon", TEA_VALUE, _sugar, _spoon);
+                return SendDrinkOrder(TEA_VALUE);
             }
             else
             {
-                return MakeDrink(string.Format("M:The amount {0} is not enough for ordering {1}", moneyAmount, TEA_VALUE));
+                return SendMessageNotEnoughMoney( TEA_VALUE, moneyAmount);
             }
+        }
+
+        private string SendMessageNotEnoughMoney(string drinkValue, double moneyAmount)
+        {
+            return MakeDrink(string.Format("{0}{1}The amount {2} is not enough for ordering {3}", MESSAGE_CONTENT, SEPARATOR, moneyAmount, drinkValue));
+        }
+
+        private string SendDrinkOrder(string DrinkValue)
+        {
+            return string.Format("{0} with {1} sugar and {2} spoon", DrinkValue, _sugar, _spoon);
         }
 
         private void SetOrder(string order)
@@ -124,7 +135,7 @@ namespace CoffeMachineKata
             {
                 _spoon = NO;
             }
-            if (orderInstructions[2] == "0")
+            if (orderInstructions[2] == NO_SUGAR_ORDER)
             {
                 _spoon = INDEFINITE_ARTICLE;
             }
