@@ -24,16 +24,18 @@ namespace CoffeMachineKata
             MoneyAmount = moneyAmount;
             IsHot = isHot;
 
-            if (!string.IsNullOrEmpty(sugar))
-            {
-                Sugar = sugar;
-            }
-            else
+            bool addSugar = !string.IsNullOrEmpty(sugar);
+            if (!addSugar)
             {
                 Sugar = NO;
             }
+            else
+            {
+                Sugar = sugar;
+            }
+            bool noSpoonInput = string.IsNullOrEmpty(spoon);
 
-            if (string.IsNullOrEmpty(sugar) || string.IsNullOrEmpty(spoon))
+            if (!addSugar || noSpoonInput)
             {
                 Spoon = NO;
             }
