@@ -59,7 +59,7 @@ namespace CoffeMachineKata
         internal string SendMessageNotEnoughMoney(string drinkValue)
         {
             CoffeMaker coffeeMaker = new CoffeMaker();
-            return coffeeMaker.MakeDrink(string.Format("{0}{1}The amount {2} is not enough for ordering {3}", MESSAGE_CONTENT, SEPARATOR, MoneyAmount, drinkValue));
+            return coffeeMaker.MakeDrink(string.Format("{0}{1}The amount {2} is not enough for ordering {3}", MESSAGE_CONTENT, SEPARATOR, MoneyAmount.ToString(CultureInfo.InvariantCulture), drinkValue));
         }
     }
 }
