@@ -33,6 +33,7 @@ namespace CoffeMachineKata
              * Idea : Create Method Prepare Intruction Object 
              * Idea : Code Redendancy To Specific Class 
              * **/
+
             string[] orderInstructions = order.Split(SEPARATOR);
             string drinkOrderValue = orderInstructions[0];
             string isHot = "";
@@ -47,24 +48,24 @@ namespace CoffeMachineKata
             {
                 case ORANGE:
                     {
-                        DrinkOrder drinkOrder = new OrangeDrinkOrder(moneyAmount, orderInstructions[0], orderInstructions[1], orderInstructions[2]);
+                        DrinkOrder drinkOrder = new OrangeDrinkOrder(moneyAmount, orderInstructions[1], orderInstructions[2]);
                         return drinkOrder.GetOrder();
                     }
                 case CHOCOLATE:
                     {
-                        DrinkOrder drinkOrder = new ChocolateDrinkOrder(moneyAmount, orderInstructions[0], orderInstructions[1], orderInstructions[2], ShouldBeHot(isHot));
+                        DrinkOrder drinkOrder = new ChocolateDrinkOrder(moneyAmount, orderInstructions[1], orderInstructions[2], ShouldBeHot(isHot));
                         return drinkOrder.GetOrder();
                     }
 
                 case COFFEE:
                     {
-                        DrinkOrder drinkOrder = new CoffeeDrinkOrder(moneyAmount, orderInstructions[0], orderInstructions[1], orderInstructions[2], ShouldBeHot(isHot));
+                        DrinkOrder drinkOrder = new CoffeeDrinkOrder(moneyAmount, orderInstructions[1], orderInstructions[2], ShouldBeHot(isHot));
                         return drinkOrder.GetOrder();
                     }
 
                 case TEA:
                     {
-                        DrinkOrder drinkOrder = new TeaDrinkOrder(moneyAmount, orderInstructions[0], orderInstructions[1], orderInstructions[2]);
+                        DrinkOrder drinkOrder = new TeaDrinkOrder(moneyAmount, orderInstructions[1], orderInstructions[2]);
                         return drinkOrder.GetOrder();
                     }
 

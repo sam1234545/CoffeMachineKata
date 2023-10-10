@@ -5,7 +5,7 @@ namespace CoffeMachineKata
     {
         private const string CHOCOLATE_VALUE = "Chocolate";
         private const double MINIMUM_AMOUNT_CHOCOLATE = 0.5;
-        public ChocolateDrinkOrder(double moneyAmount, string drink, string sugar, string spoon, bool isHot=false) : base(moneyAmount, drink, sugar, spoon, isHot)
+        public ChocolateDrinkOrder(double moneyAmount, string sugar, string spoon, bool isHot=false) : base(moneyAmount, sugar, spoon, isHot)
         {
         }
 

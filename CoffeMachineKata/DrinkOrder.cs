@@ -19,10 +19,9 @@ namespace CoffeMachineKata
         protected readonly string? Spoon;
         protected readonly double MoneyAmount;
         protected readonly bool IsHot;
-        public DrinkOrder(double moneyAmount, string drink, string sugar, string spoon, bool isHot = default)
+        public DrinkOrder(double moneyAmount, string sugar, string spoon, bool isHot = default)
         {
             MoneyAmount = moneyAmount;
-            Drink = drink;
             IsHot = isHot;
 
             if (!string.IsNullOrEmpty(sugar))

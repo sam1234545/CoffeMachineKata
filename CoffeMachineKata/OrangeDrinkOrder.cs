@@ -8,12 +8,12 @@ namespace CoffeMachineKata
 {
     internal class OrangeDrinkOrder : DrinkOrder
     {
-        public OrangeDrinkOrder(double moneyAmount, string drink, string sugar, string spoon) : base(moneyAmount, drink, sugar, spoon)
+        public OrangeDrinkOrder(double moneyAmount, string sugar, string spoon) : base(moneyAmount, sugar, spoon)
         {
         }
 
         private const string ORANGE_VALUE = "Orange";
-        private const double MINIMUM_AMOUNT_ORANGE= 0.6;
+        private const double MINIMUM_AMOUNT_ORANGE = 0.6;
 
         public override string GetOrder()
         {
