@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,17 +8,17 @@ namespace CoffeMachineKata
     internal abstract class DrinkOrder
     {
 
-        internal const string NO = "no";
-        internal const string NO_SUGAR_ORDER = "0";
-        internal const string INDEFINITE_ARTICLE = "a";
-        internal const char MESSAGE_CONTENT = 'M';
-        internal const string EXTRA_HOT_DRINK_TEXT = "An extra hot";
-        internal const char SEPARATOR = ':';
-        internal readonly string? Sugar;
-        internal readonly string? Drink;
-        internal readonly string? Spoon;
-        internal readonly double MoneyAmount;
-        internal readonly bool IsHot;
+        protected const string NO = "no";
+        protected const string NO_SUGAR_ORDER = "0";
+        protected const string INDEFINITE_ARTICLE = "a";
+        protected const char MESSAGE_CONTENT = 'M';
+        protected const string EXTRA_HOT_DRINK_TEXT = "An extra hot";
+        protected const char SEPARATOR = ':';
+        protected readonly string? Sugar;
+        protected readonly string? Drink;
+        protected readonly string? Spoon;
+        protected readonly double MoneyAmount;
+        protected readonly bool IsHot;
         public DrinkOrder(double moneyAmount, string drink, string sugar, string spoon, bool isHot = default)
         {
             MoneyAmount = moneyAmount;
@@ -47,7 +46,7 @@ namespace CoffeMachineKata
 
         public abstract string GetOrder();
 
-        internal string SendDrinkOrder(string drinkValue)
+        protected string SendDrinkOrder(string drinkValue)
         {
             if (IsHot)
             {
@@ -56,7 +55,7 @@ namespace CoffeMachineKata
             return string.Format("{0} with {1} sugar and {2} spoon", drinkValue, Sugar, Spoon);
         }
 
-        internal string SendMessageNotEnoughMoney(string drinkValue)
+        protected string SendMessageNotEnoughMoney(string drinkValue)
         {
             CoffeMaker coffeeMaker = new CoffeMaker();
             return coffeeMaker.MakeDrink(string.Format("{0}{1}The amount {2} is not enough for ordering {3}", MESSAGE_CONTENT, SEPARATOR, MoneyAmount.ToString(CultureInfo.InvariantCulture), drinkValue));
