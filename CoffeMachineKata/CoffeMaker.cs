@@ -36,10 +36,9 @@ namespace CoffeMachineKata
 
         private string GetCustomerOrder(string order, double moneyAmount)
         {
-            SetOrder(order);
             string[] orderInstructions = order.Split(SEPARATOR);
  
-            switch (_drink)
+            switch (orderInstructions[0])
             {
                 case CHOCOLATE:
                     {
@@ -63,36 +62,5 @@ namespace CoffeMachineKata
             }
         }
 
-        private void SetOrder(string order)
-        {
-            string[] orderInstructions = order.Split(SEPARATOR);
-            _drink = orderInstructions[0];
-            SetSugar(orderInstructions);
-            SetSpoon(orderInstructions);
-        }
-
-        private void SetSugar(string[] orderInstructions)
-        {
-            if (!string.IsNullOrEmpty(orderInstructions[1]))
-            {
-                _sugar = orderInstructions[1];
-            }
-            else
-            {
-                _sugar = NO;
-            }
-        }
-
-        private void SetSpoon(string[] orderInstructions)
-        {
-            if (string.IsNullOrEmpty(orderInstructions[1]) || string.IsNullOrEmpty(orderInstructions[2]))
-            {
-                _spoon = NO;
-            }
-            if (orderInstructions[2] == NO_SUGAR_ORDER)
-            {
-                _spoon = INDEFINITE_ARTICLE;
-            }
-        }
     }
 }
