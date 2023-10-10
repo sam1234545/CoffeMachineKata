@@ -68,11 +68,27 @@ namespace CoffeMachineKata
         }
 
         [Fact]
-        public void Should_SendOneChocolateNoSugar_NoSpoon_WhenOrdered_WithWrongPrice()
+        public void Should_SendOneChocolateNoSugar_NoSpoon_WhenOrdered_WithRightPrice()
         {
             var CoffeMaker = new CoffeMaker();
             var order = CoffeMaker.MakeDrink("H::",0.5);
             Assert.Equal("Chocolate with no sugar and no spoon", order);
+        }
+
+        [Fact]
+        public void Should_SendOneOrange_OneSugar_aSpoon_WhenOrdered_WithWrongPrice()
+        {
+            var CoffeMaker = new CoffeMaker();
+            var order = CoffeMaker.MakeDrink("O:1:0", 0.5);
+            Assert.Equal("The amount 0,5 is not enough for ordering Orange", order);
+        }
+
+        [Fact]
+        public void Should_SendOneOrangeNoSugar_NoSpoon_WhenOrdered_WithWrongPrice()
+        {
+            var CoffeMaker = new CoffeMaker();
+            var order = CoffeMaker.MakeDrink("O::", 0.6);
+            Assert.Equal("Orange with no sugar and no spoon", order);
         }
     }
 }

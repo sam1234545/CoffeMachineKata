@@ -1,5 +1,4 @@
-﻿using System.Runtime.CompilerServices;
-
+﻿
 namespace CoffeMachineKata
 {
     public class CoffeMaker
@@ -7,6 +6,7 @@ namespace CoffeMachineKata
         const string CHOCOLATE = "H";
         const string COFFEE = "C";
         const string TEA = "T";
+        const string ORANGE = "O";
 
         private const char MESSAGE_CONTENT = 'M';
         private const string ERROR = "Please make an order";
@@ -32,6 +32,11 @@ namespace CoffeMachineKata
  
             switch (orderInstructions[0])
             {
+                case ORANGE:
+                    {
+                        DrinkOrder drinkOrder = new OrangeDrinkOrder(moneyAmount, orderInstructions[0], orderInstructions[1], orderInstructions[2]);
+                        return drinkOrder.GetOrder();
+                    }
                 case CHOCOLATE:
                     {
                         DrinkOrder drinkOrder = new ChocolateDrinkOrder(moneyAmount, orderInstructions[0], orderInstructions[1], orderInstructions[2]);
